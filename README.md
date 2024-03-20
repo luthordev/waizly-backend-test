@@ -8,6 +8,7 @@ Steps to run this project:
 3. Run `npm start` command
 
 Available Endpoints:
+
 `GET` `/api/login` `{ username: string, password: string }`
 
 `GET` `/api/user/get`
