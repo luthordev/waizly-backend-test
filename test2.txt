@@ -1,0 +1,18 @@
+1. SELECT * FROM employees
+2. SELECT COUNT(*) as Jumlah_Manager FROM employees WHERE job_title = "Manager"
+3. SELECT name, salary FROM employees WHERE department = "Marketing" OR department "Sales"
+4. SELECT AVG(salary) as AVG_Gaji FROM employees WHERE joined_date < DATE_SUB(CURDATE(), INTERVAL 5 YEAR)
+5. SELECT TOP 5 e.name as Name, SUM(s.sales) AS Penjualan FROM employees as e INNER JOIN sales_data as s ON e.id = s.employee_id GROUP BY e.id ORDER BY s.sales DESC
+6.
+7. SELECT e.name as Name, SUM(s.sales) AS Penjualan FROM employees as e INNER JOIN sales_data as s ON e.id = s.employee_id GROUP BY e.id ORDER BY s.sales DESC
+8.
+CREATE PROCEDURE get_employees_by_department(IN department_name VARCHAR(255))
+BEGIN
+  SELECT
+    name,
+    salary,
+  FROM employees
+  WHERE department = department_name;
+END $$
+
+DELIMITER ;
